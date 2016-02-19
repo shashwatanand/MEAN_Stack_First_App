@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<div class="container" ng-controller="AppCtrl">
-			<h1>Mean Stack App</h1>
+			<h1>MEAN Stack App</h1>
 
 			<table class="table">
 				<thead>
@@ -20,6 +20,13 @@
 						<th>Id</th>
 					</tr>
 				</thead>
+				<tbody>
+					<tr ng-repeat="student in studentList">
+						<td>{{student.firstName}}</td>
+						<td>{{student.lastName}}</td>
+						<td>{{student.id}}</td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 
