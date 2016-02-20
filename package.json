@@ -1,0 +1,26 @@
+{
+  "name": "sha-mean-stack",
+  "version": "1.0.0",
+  "description": "MEAN Stack App",
+  "main": "3000",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "mongojs": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shashwatanand/MEAN_Stack_First_App.git"
+  },
+  "author": "Shashwat Anand",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shashwatanand/MEAN_Stack_First_App/issues"
+  },
+  "homepage": "https://github.com/shashwatanand/MEAN_Stack_First_App#readme"
+}
