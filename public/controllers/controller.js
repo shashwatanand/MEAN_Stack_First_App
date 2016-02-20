@@ -21,4 +21,11 @@ meanApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 			refresh();
 		});
 	};
+
+	$scope.remove = function(recordId) {
+		console.log(recordId);
+		$http.delete('/studentList/' + recordId).success(function(response){
+			refresh();
+		});
+	}
 }]);

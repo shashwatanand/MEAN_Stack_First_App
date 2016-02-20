@@ -49,5 +49,13 @@ app.post('/studentList', function(request, response){
 	});
 });
 
+app.delete('/studentList/:recordId', function(request, response){
+	var recordId = request.params.recordId;
+	console.log(recordId);
+	db.studentList.remove({_id: mongojs.ObjectID(recordId)}, function(err, doc){
+		response.json(doc);
+	});
+});
+
 app.listen(3000);
 console.log("Server running on port 3000");
