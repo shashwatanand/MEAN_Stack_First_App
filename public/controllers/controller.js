@@ -9,7 +9,7 @@ meanApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 	var refresh = function() {
 		$http.get('/studentList').success(function(response){
 			$scope.studentList = response;
-			$scope.contact = "";
+			$scope.student = "";
 		});
 	};
 	refresh();
@@ -27,5 +27,23 @@ meanApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 		$http.delete('/studentList/' + recordId).success(function(response){
 			refresh();
 		});
+	};
+
+	$scope.edit = function(recordId) {
+		console.log(recordId);
+		$http.get('/studentList/' + recordId).success(function(response){
+			$scope.student = response;
+		});
+	};
+
+	$scope.update = function() {
+		console.log($scope.student._id);
+		$http.put('/studentList/' + $scope.student._id, $scope.student).success(function(response){
+			refresh();
+		});
+	};
+
+	$scope.deselect = function() {
+		$scope.student = "";
 	}
 }]);

@@ -52,9 +52,21 @@ app.post('/studentList', function(request, response){
 app.delete('/studentList/:recordId', function(request, response){
 	var recordId = request.params.recordId;
 	console.log(recordId);
-	db.studentList.remove({_id: mongojs.ObjectID(recordId)}, function(err, doc){
+	db.studentList.remove({_id: mongojs.ObjectID(recordId)}, function(error, doc){
 		response.json(doc);
 	});
+});
+
+app.get('/studentList/:recordId', function(request, response){
+	var recordId = request.params.recordId;
+	console.log(recordId);
+	db.studentList.findOne({_id: mongojs.ObjectID(recordId)}, function(error, doc){
+		response.json(doc);
+	});
+});
+
+app.get('/studentList/:recordId', function(request, response){
+	
 });
 
 app.listen(3000);
