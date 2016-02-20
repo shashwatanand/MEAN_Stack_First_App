@@ -4,11 +4,14 @@ var app = express();
 var mongojs = require('mongojs');
 var db = mongojs('studentList', ['studentList']);
 
+var bodyParser = require('body-parser');
+
 /*app.get('/', function(request, response){
 	response.send("Hello world from server.js");
 });*/
 
 app.use(express.static(__dirname + "/public"));
+app.use(bodyParser.json());
 
 app.get('/studentList', function(request, response){
 	/*console.log("Received a GET request");
@@ -39,8 +42,11 @@ app.get('/studentList', function(request, response){
 	});
 });
 
-app.post('/studentList', functio(request, response){
+app.post('/studentList', function(request, response){
 	console.log(request.body);
+	db.studentList.insert(request.body, function(error, doc){
+		response.json(doc);
+	});
 });
 
 app.listen(3000);
