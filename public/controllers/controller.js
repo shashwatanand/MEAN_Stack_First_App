@@ -9,4 +9,9 @@ meanApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 	$http.get('/studentList').success(function(response){
 		$scope.studentList = response;
 	});
+
+	$scope.addStudent = function() {
+		console.log($scope.student);
+		$http.post('/studentList', $scope.student);
+	};
 }]);

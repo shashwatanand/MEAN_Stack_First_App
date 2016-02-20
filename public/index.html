@@ -18,9 +18,17 @@
 						<th>First Name</th>
 						<th>Last Name</th>
 						<th>Id</th>
+						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
+					<tr>
+						<td><input class="form-control" ng-model="student.firstName"></td>
+						<td><input class="form-control" ng-model="student.lastName"></td>
+						<td><input class="form-control" ng-model="student.id"></td>
+						<td><button class="btn-primary" ng-click="addStudent()">Add Student</button></td>
+
+					</tr>
 					<tr ng-repeat="student in studentList">
 						<td>{{student.firstName}}</td>
 						<td>{{student.lastName}}</td>
