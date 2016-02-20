@@ -65,8 +65,16 @@ app.get('/studentList/:recordId', function(request, response){
 	});
 });
 
-app.get('/studentList/:recordId', function(request, response){
-	
+app.put('/studentList/:recordId', function(request, response){
+	var recordId = request.params.recordId;
+	console.log(request.body.firstName);
+	db.studentList.findAndModify({
+		query: {_id: mongojs.ObjectID(recordId)},
+		update: {$set : {firstName: request.body.firstName,
+						 lastName: request.body.lastName,
+						 id: request.body.id}}, new: true}, function(error, doc){
+						 	response.json(doc);
+						 });
 });
 
 app.listen(3000);
